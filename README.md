@@ -6,11 +6,7 @@ on need-当需要时，功能粒化、按需加载、管理组件
 API
 
 onee.use
-/**
- * onee.use(plugin);
- * @param plugin {String} // 加载组件
- * @method done(callback) // 装载回调
- */
+onee.use(plugin-index).done(callback);
 
 Demo:
 onee.use(“onee.Powin”).done(functin() {
@@ -18,11 +14,7 @@ onee.use(“onee.Powin”).done(functin() {
 })
 
 onee.inc
-/**
- * onee.inc(file[, file[, file[, file]...]]);
- * @param file{String|Array} // 加载文件
- * @method done(callback) // 装载回调
- */
+onee.inc(file[, file[, file[, file]...]]).done(callback);
 
 Demo1:
 onee.inc(“script1.js”, “script2.js”, “script3.js”) // 1 2 3 均有依赖关系
