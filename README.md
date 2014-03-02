@@ -29,4 +29,4 @@ onee.inc([“script1.js”, “script2.js”], “script3”) //  1 2 无依赖�
 
 workspace 说明：
 
-workspace 主要为onee加载内置组件提供路径，当onee是绝对地址加载进来（http://www.xxx.com/xxx/onee/），或者当onee存放在根目录（/onee），workspace属性不需要配置。
+workspace 主要为onee加载内置组件提供路径，当onee是绝对地址加载进来（http:\/\/www.xxx.com\/xxx\/onee\/），或者当onee存放在根目录（/onee），workspace属性不需要配置。
