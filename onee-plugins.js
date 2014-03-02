@@ -47,25 +47,25 @@
 		// Plugin
 		"onee.TmplM" : [
 			ajax,
-			Plugin + "onee.TmplM/TmplM.js"
+			Plugin + "onee.TmplM/index.js"
 		],
 		"onee.form" : [
 			[sizzle, ajax],
-			Plugin + "onee.form/form.js"
+			Plugin + "onee.form/index.js"
 		],
 		"onee.Powin" : [
 			sizzle,
 			dom,
 			ajax,
 			[
-                Plugin + "onee.Powin/Powin.js",
+                Plugin + "onee.Powin/index.js",
                 Plugin + "onee.Powin/powin-style.css"
             ]
 		],
 		"onee.swf" : [
 			sizzle,
 			dom,
-			Plugin + "onee.swf/swf.js"
+			Plugin + "onee.swf/index.js"
 		],
         "onee.scrollpx" : [
             sizzle,
@@ -95,18 +95,6 @@
 			jquery,
 			Plugin + "jQuery.tab/Tab.js"
 		],
-		"jquery.unslider" : [
-			jquery,
-			Plugin + "jQuery.unslider/Unslider.js"
-		],
-        "jquery.3dslider" : [
-            jquery,
-            Plugin + "jQuery.3dslider/index.js"
-        ],
-        "jquery.lightbox" : [
-            jquery,
-            Plugin + "jQuery.lightbox/index.js"
-        ],
         "slipjs" : [
             sizzle,
             dom,

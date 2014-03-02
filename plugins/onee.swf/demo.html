@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>plugin - swf | demo</title>
+</head>
+<style>
+*{margin:0; padding:0}
+body, html{
+	font-size:12px;
+	font-family:"Microsofe yahei"
+}
+a {
+	text-decoration:none
+}
+pre {
+	background-color:#CCC;
+	padding:0 10px;
+	line-height:22px
+}
+pre em{
+	color:#999
+}
+h1{
+	font:bold 20px/50px "a";
+	text-align:center;
+	background-color:#993;
+	margin-bottom:20px;
+	box-shadow: 0 5px 5px rgba(0,0,0,.3)
+}
+h2{
+	font:bold 14px/30px "Microsofe yahei"
+}
+.article{
+	width:50%;
+	float:left;
+	margin:0 1% 20px;
+	box-shadow:5px 5px 5px rgba(0,0,0,.3)
+}
+</style>
+<style>
+.err{
+	background-color:#F63
+}
+</style>
+<body>
+<h1>api - onee.swf</h1>
+<div class="article w1">
+<h2>(1)swf - 接口全字段</h2>
+<pre>
+<em>// @param {String} option.url</em>
+<em>// @param {String} option.context</em>
+<em>// @param {String} option.height</em>
+<em>// @param {String} option.width</em>
+<em>// @param {String} option.ver</em>
+<em>// @param {string} option.vars  传递给flash的参数</em>
+<em>// @param {string} option.base  设置用于解析swf文件中的所有相对路径语句的基本目录或URL</em> 
+<em>// @param {string} option.bgcolor  swf文件的背景色 </em>
+<em>// @param {string} option.salign  设置缩放的swf文件在由width和height设置定义的区域内的位置。允许值：l/r/t/b/tl/tr/bl/br </em>
+<em>// @param {boolean} option.menu  是否显示右键菜单，允许值：true/false </em>
+<em>// @param {boolean} option.loop  播放到最后一帧时是否重新播放，允许值： true/false </em>
+<em>// @param {boolean} option.play  flash是否在浏览器加载时就开始播放。允许值：true/false </em>
+<em>// @param {string} option.quality  设置flash播放的画质，允许值：low/medium/high/autolow/autohigh/best </em>
+<em>// @param {string} option.scale  设置flash内容如何缩放来适应设置的宽高。允许值：showall/noborder/exactfit </em>
+<em>// @param {string} option.wmode  设置flash的显示模式。允许值：window/opaque/transparent </em>
+<em>// @param {string} option.allowscriptaccess  设置flash与页面的通信权限。允许值：always/never/sameDomain </em>
+<em>// @param {string} option.allownetworking  设置swf文件中允许使用的网络API。允许值：all/internal/none </em>
+<em>// @param {boolean} option.allowfullscreen  是否允许flash全屏。允许值：true/false </em>
+<em>// @param {boolean} option.seamlesstabbing  允许设置执行无缝跳格，从而使用户能跳出flash应用程序。该参数只能在安装Flash7及更高版本的Windows中使用。允许值：true/false </em>
+<em>// @param {boolean} option.devicefont  设置静态文本对象是否以设备字体呈现。允许值：true/false </em>
+<em>// @param {boolean} option.swliveconnect  第一次加载flash时浏览器是否应启动Java。允许值：true/false </em>
+<em>// @method process [function] 进程回调，返回参数{percent: "Number", status : ("process"|"done")}</em>
+onee.swf({
+	url     : "http://lingzhi.fxauto.com.cn/cm/pm_c9d/home.swf",
+	context : ".bannerswf",
+	height  : 700,
+	width   : 1280
+}).process(function ( percent, status ) {
+
+	console.log(percent);
+	console.log(status);
+
+})
+</pre>
+</div>
+
+
+<div class="bannerswf"></div>
+<div class="guide"></div>
+</body>
+</html>
+<script src="../../Base/Underscode/underscodejs.min.js"></script>
+<script src="../../Base/onee.js"></script>
+<script src="../../Base/onee-plugins.js"></script>
+<script>
+onee.use("onee.swf").done(function () {
+
+	var banner = Sizzle(".guide")[0];
+
+	onee.swf({
+		url     : "http://lingzhi.fxauto.com.cn/cm/pm_c9d/home.swf",
+		context : ".bannerswf",
+		height  : 700,
+		width   : 1280
+	}).process(function ( percent, status ) {
+	
+		onee.dom.text(banner, percent);
+	
+	})
+
+})
+</script>
