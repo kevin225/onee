@@ -13,7 +13,7 @@ onee.use(“onee.Powin”).done(functin() {
 	console.log(“do it”)
 })
 
-onee.inc
+<strong>onee.inc</strong>
 onee.inc(file[, file[, file[, file]...]]).done(callback);
 
 Demo1:
