@@ -14,14 +14,14 @@
 
 
     var ws = onee.workspace;
-    var base = ws + "Base/";
-    var Plugin = ws + "Plugin/";
-    var sizzle = base + "Sizzle/Sizzle.js";
-    var jquery = base + "jQuery/jquery.js";
-    var Tween = base + "Tween/Tween.js";
-    var RequestAnimationFrame = base + "Tween/RequestAnimationFrame.js";
-    var dom = base + "onee.dom/dom.js";
-    var ajax = base + "onee.ajax/ajax.js";
+    // var base = ws + "Base/";
+    var plugins = ws + "plugins/";
+    var sizzle = "Sizzle/Sizzle.js";
+    var jquery = "jquery/jquery.js";
+    var Tween = "Tween/Tween.js";
+    var RequestAnimationFrame = "Tween/RequestAnimationFrame.js";
+    var dom = "onee-dom.js";
+    var ajax = "onee-ajax.js";
 	
 	onee.plugins = {
 
@@ -47,30 +47,30 @@
 		// Plugin
 		"onee.TmplM" : [
 			ajax,
-			Plugin + "onee.TmplM/index.js"
+			plugins + "onee.TmplM/index.js"
 		],
 		"onee.form" : [
 			[sizzle, ajax],
-			Plugin + "onee.form/index.js"
+			plugins + "onee.form/index.js"
 		],
 		"onee.Powin" : [
 			sizzle,
 			dom,
 			ajax,
 			[
-                Plugin + "onee.Powin/index.js",
-                Plugin + "onee.Powin/powin-style.css"
+                plugins + "onee.Powin/index.js",
+                plugins + "onee.Powin/powin-style.css"
             ]
 		],
 		"onee.swf" : [
 			sizzle,
 			dom,
-			Plugin + "onee.swf/index.js"
+			plugins + "onee.swf/index.js"
 		],
         "onee.scrollpx" : [
             sizzle,
             dom,
-            Plugin + "onee.scrollpx/index.js"
+            plugins + "onee.scrollpx/index.js"
         ],
         "onee.scrollitem" : [
             [
@@ -79,7 +79,7 @@
                 sizzle
             ],
             dom,
-            Plugin + "onee.scrollitem/index.js"
+            plugins + "onee.scrollitem/index.js"
         ],
         "onee.scrollanimation" : [
             [
@@ -88,17 +88,17 @@
                 sizzle
             ],
             dom,
-            Plugin + "onee.scrollitem/index.js",
-            Plugin + "onee.scrollanimation/index.js"
+            plugins + "onee.scrollitem/index.js",
+            plugins + "onee.scrollanimation/index.js"
         ],
 		"jquery.tab" : [
 			jquery,
-			Plugin + "jQuery.tab/Tab.js"
+			plugins + "jquery.tab/index.js"
 		],
         "slipjs" : [
             sizzle,
             dom,
-            Plugin + "mobile.slipjs/index.js"
+            plugins + "onee.mobile.slipjs/index.js"
         ]
 
 	};

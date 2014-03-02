@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>plugin - mslider | demo</title>
+    <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li,ul{
+            list-style-type: none;
+        }
+        img{
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+        .mb-slider{
+            width: 100%;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+            background-color: #000000;
+        }
+        .mb-slider li{
+
+        }
+        .mslider-dots{
+            position: absolute;
+            text-align: center;
+            width: 100%;
+            bottom: 10px;
+            -webkit-text-size-adjust:none;
+            font-size: 0;
+        }
+        .mslider-dots a{
+            display: inline-block;
+            height: 6px;
+            width: 6px;
+            background-color: #fff;
+            border: 1px #0088cc solid;
+            border-radius: 5px;
+            margin: 0 2px;
+        }
+        .mslider-dots .curr{
+            background-color: #0088cc;
+            border: 1px #fff solid;
+        }
+    </style>
+</head>
+<body>
+<div class="mb-slider">
+    <ul id="m-slip">
+        <li><img src="demo_files/change01.jpg" /></li>
+        <li><img src="demo_files/change02.jpg" /></li>
+        <li><img src="demo_files/change03.jpg" /></li>
+    </ul>
+</div>
+</body>
+<script src="../../Base/Underscode/underscodejs.min.js"></script>
+<script src="../../Base/onee.js"></script>
+<script src="../../Base/onee-plugins.js"></script>
+<script>
+    onee.use("slipjs").done(function () {
+        onee.mslider("#m-slip")
+    })
+</script>
+</html>

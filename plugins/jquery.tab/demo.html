@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Plugin - jQuery.tab | demo</title>
+<style>
+*{margin:0; padding:0}
+body, html{
+	font-size:12px;
+}
+a {
+	text-decoration:none
+}
+pre {
+	background-color:#CCC;
+	padding:0 10px;
+	line-height:28px
+}
+pre em{
+	color:#999
+}
+.tab1{
+	width:300px;
+	float:left;
+	margin-top:100px
+}
+.tab2{
+	margin-left:20px
+}
+.tab1 .navi{
+	font-size:0;
+}
+.tab1 .navi a{
+	font-size:12px;
+	padding:0 10px;
+	margin:0 5px;
+	border-radius:5px 5px 0 0;
+	display:inline-block;
+	line-height:30px;
+	background-color:#09c;
+	color:#CCC
+}
+.tab1 .navi .activetab,
+.tab1 .navi .current{
+	background-color:#C60;
+	color:#fff
+}
+.tab1 .ct{
+	line-height:28px;
+	margin:10px;
+	text-indent:2em;
+	background-color:#C60;
+	display:none
+}
+</style>
+</head>
+<body>
+<h2>API :</h2>
+<pre>>> $("#ID").tab([def], [defClass])</pre>
+<pre>@param [def] Number|String|undefined 初始显示栏目，0开始，默认0</pre>
+<pre>@param [defClass] String|undefined 初始样式类，默认"activetab"</pre>
+<pre>@param [fns] Array|undefined 各栏目切换事件（当初始化、当显示、当隐藏）</pre>
+
+<div class="tab1" id="tabmodule1">
+	<p class="navi">
+		<a href="#" tab-navi>栏目一</a>
+		<a href="#" tab-navi>栏目二</a>
+		<a href="#" tab-navi>栏目三</a>
+		<a href="#" tab-navi>栏目四</a>
+	</p>
+	<p class="ct" tab-content>
+		栏目一栏目一栏目一栏目一栏目一栏目一栏目一栏目一栏目一栏目一栏目一栏目一栏目一栏目一栏目一栏目一
+	</p>
+	<p class="ct" tab-content>
+		栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二
+	</p>
+	<p class="ct" tab-content>
+		栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三
+	</p>
+	<p class="ct" tab-content>
+		栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四
+	</p>
+	<pre>>> $("#tabmodule1").tab()</pre>
+</div>
+
+<div class="tab1 tab2" id="tabmodule2">
+	<p class="navi">
+		<a href="#" tab-navi>栏目一</a>
+		<a href="#" tab-navi>栏目二</a>
+		<a href="#" tab-navi>栏目三</a>
+		<a href="#" tab-navi>栏目四</a>
+	</p>
+	<p class="ct" tab-content>
+		栏目一栏目一栏目一栏目一栏目一栏目一栏目一栏目一栏目一栏目一栏目一栏目一栏目一栏目一栏目一栏目一
+	</p>
+	<p class="ct" tab-content>
+		栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二
+	</p>
+	<p class="ct" tab-content>
+		栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三
+	</p>
+	<p class="ct" tab-content>
+		栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四
+	</p>
+	<pre><em>//默认显示第三栏，默认样式类改为current</em></pre>
+	<pre>>> $("#tabmodule2").tab(2, "current")</pre>
+</div>
+<div class="tab1 tab3" id="tabmodule3">
+	<p class="navi">
+		<a href="#" tab-navi>栏目一</a>
+		<a href="#" tab-navi>栏目二</a>
+		<a href="#" tab-navi>栏目三</a>
+		<a href="#" tab-navi>栏目四</a>
+	</p>
+	<p class="ct" tab-content>
+		栏目一栏目一栏目一栏目一栏目一栏目一栏目一栏目一栏目一栏目一栏目一栏目一栏目一栏目一栏目一栏目一
+	</p>
+	<p class="ct" tab-content>
+		栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二栏目二
+	</p>
+	<p class="ct" tab-content>
+		栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三栏目三
+	</p>
+	<p class="ct" tab-content>
+		栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四栏目四
+	</p>
+	<pre>>> $("#tabmodule2").tab(2, "current")</pre>
+</div>
+</body>
+</html>
+<script src="/onee/Base/Underscode/underscodejs.min.js"></script>
+<script src="/onee/Base/onee.js"></script>
+<script src="/onee/Base/onee-plugins.js"></script>
+<script>
+onee.use("jquery.tab").done(function () {
+
+	$("#tabmodule1").tab()
+	$("#tabmodule2").tab(2, "current")
+	$("#tabmodule3").tab([
+	
+		{
+			init : function () {
+				console.log("box1 init")
+			},
+			onshow : function () {
+				console.log("box1 show")
+			},
+			onhide : function () {
+				console.log("box1 hide")
+			}
+		},
+		!!0, !!0,
+		{
+			init : function () {
+				console.log("box4 init")
+			},
+			onshow : function () {
+				console.log("box4 show")
+			},
+			onhide : function () {
+				console.log("box4 hide")
+			}
+		}
+	
+	])
+
+})
+
+</script>

@@ -80,27 +80,6 @@ var slice     = Array.prototype.slice,
 	dBody     = document.body;
 	
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /**
  * NameSpace 工具集
  * 20130130
@@ -200,35 +179,6 @@ var isFunction = onee.isFunction = isType("Function");
 var isUndefined = onee.isUndefined = isType("Undefined");
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /**
  * Object 浏览器属性检测
  * 返回主流浏览器
@@ -288,96 +238,6 @@ var browser = onee.browser = (function () {
 	return _result;
 	
 })();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/**
- * Function 返回页面即时的信息，包括页面高度，宽度，浏览器可见域高度，宽度，页面当前滚动高度
- * param [dom] elem对象
- * 20111130
- * fix : 20120626 - 添加普通标签的信息返回
- */
-var pageinfo = onee.pageinfo = function () {
-
-	var obj = !elem || elem === document ? window : elem;
-	if ( typeof obj !== 'object' ) return log( 'typeof elem must be object.' );
-	return obj === window ?
-	{
-		//页面高度
-		PH : document.body.clientHeight,
-		//页面宽度
-		PW : document.body.clientWidth,
-		//浏览器可见域高度
-		WH : document.documentElement.clientHeight,
-		//浏览器可见域宽度
-		WW : document.documentElement.clientWidth,
-		//页面当前往上滚动高度
-		ST : document.documentElement.scrollTop || document.body.scrollTop,
-		//页面当前往左滚动高度
-		SL : document.documentElement.scrollLeft || document.body.scrollLeft
-	}
-	:
-	{
-		//容器可见域高度
-		WH : elem.clientHeight,
-		//容器可见域宽度
-		WW : elem.clientWidth,
-		//容器当前滚动高度
-		ST : elem.scrollTop
-	}
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
