@@ -8,10 +8,6 @@ API
 <p style="line-height:30px; font-size:18px"><strong>onee.use</strong></p>
 onee.use(plugin-index).done(callback);
 
-Demo:
-onee.use(“onee.Powin”).done(functin() {
-	console.log(“do it”)
-})
 
 <p style="line-height:30px; font-size:18px"><strong>onee.inc</strong></p>
 onee.inc(file[, file[, file[, file]...]]).done(callback);
@@ -30,11 +26,6 @@ onee.inc([“script1.js”, “script2.js”], “script3”) //  1 2 无依赖�
 1. onee 基于 underscodejs
 2. workspace属性的配置
 3. onee-plugins.js 内置组件
-
-Demo:
-<script src="/onee/Base/Underscode/underscodejs.min.js"></script>
-<script src="/onee/Base/onee.js" workspace=""></script>
-<script src="/onee/Base/onee-plugins.js"></script>
 
 workspace 说明：
 
