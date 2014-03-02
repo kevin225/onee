@@ -14,6 +14,11 @@
  * 20131222-20131222 样式加载逻辑出错！高级浏览器已经支持onload加载css，所以并没有报错
  */
 
+/**
+ * TODO
+ * remove onee.pagenfo
+ * add onee.support
+ */
 !function (global, undefined) {
 
 // check is exist
