@@ -5,7 +5,7 @@ on need-当需要时，功能粒化、按需加载、管理组件
 
 API
 
-onee.use
+<p style="line-height:30px; font-size:18px"><strong>onee.use</strong></p>
 onee.use(plugin-index).done(callback);
 
 Demo:
@@ -13,7 +13,7 @@ onee.use(“onee.Powin”).done(functin() {
 	console.log(“do it”)
 })
 
-<strong>onee.inc</strong>
+<p style="line-height:30px; font-size:18px"><strong>onee.inc</strong></p>
 onee.inc(file[, file[, file[, file]...]]).done(callback);
 
 Demo1:
