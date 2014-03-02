@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Plugin - onee.bannerAnimate | demo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="/onee/Style/api.css">
+</head>
+<body>
+<style>
+    html,body{
+        font: 12px "Microsofe yahei" arial;
+    }
+    *{
+        margin: 0;
+        padding: 0;
+    }
+
+    .banner1{
+        margin: 100px auto 20px;
+        width: 1000px;
+        position: relative;
+    }
+    .banner1 .banner1-holder{
+        height: 500px;
+        position: relative;
+        z-index: 5;
+        overflow: hidden;
+    }
+    .banner1 .banner1-wrap{
+        position: relative;
+        width: 200%;
+        height: 100%;
+    }
+    .banner1 .scene{
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        width: 50%;
+    }
+    .banner1 .b1{background: url("imgs/b1.jpg");}
+    .banner1 .b2{background: url("imgs/b2.jpg");}
+    .banner1 .b3{background: url("imgs/b3.jpg");}
+    .banner1 .b4{background: url("imgs/b4.jpg");}
+    .banner1 .b5{background: url("imgs/b5.jpg");}
+    .bannerAnimation-dots{
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        z-index: 10;
+        bottom: 30px;
+    }
+    .bannerAnimation-dots a{
+        text-indent: -9999px;
+        display: inline-block;
+        height: 20px;
+        width: 60px;
+        margin: 0 3px;
+        background-color: #67c2ee;
+        border-radius: 10px;
+        box-shadow: 2px 1px 1px rgba(0,0,0,.5);
+    }
+    .bannerAnimation-dots .active{
+        background-color: #f4d164;
+    }
+    .moving{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+    }
+    .circle{
+        box-shadow: 10px 0 0 rgba(0,0,0,.4);
+        border-radius: 200px;
+        height: 50px;
+        overflow: hidden;
+        font-size: 0;
+        width: 50px;
+    }
+    .blue{
+        background-color: blue;
+    }
+    .red{
+        background-color: red;
+    }
+    .black{
+        background-color: #000000;
+    }
+    .white{
+        background-color: #ffffff;
+    }
+
+    .origin{
+        background-color: #FFA900;
+    }
+    .square{
+        width: 150px;
+        height: 50px;
+        box-shadow: 5px 5px 0 rgba(0,0,0,.4);
+    }
+</style>
+<div class="banner1">
+
+    <div class="banner1-holder" id="animation1">
+        <div class="banner1-wrap" animation-elem="wrap">
+            <div class="scene b1" animation-elem="scene">
+                <p
+                        animation-offset="margin-top:0"
+                        style="margin-left:-50px; left: 10%"
+                        animation-delay="0"
+                        animation-easing="Back"
+                        animation-rate="-0.7, 0.6"
+                        class="moving circle origin begin1"
+                        ></p>
+                <p
+                        animation-offset="margin-top:0"
+                        style="margin-left:-50px; left: 20%"
+                        animation-delay="100"
+                        animation-easing="Back"
+                        animation-rate="-0.7, 0.6"
+                        class="moving circle blue begin1"
+                        ></p>
+                <p
+                        animation-offset="margin-top:0"
+                        style="margin-left:-50px; left: 30%"
+                        animation-delay="200"
+                        animation-easing="Back"
+                        animation-rate="-0.7, 0.6"
+                        class="moving circle red begin1"
+                        ></p>
+                <p
+                        animation-offset="margin-top:0"
+                        style="margin-left:-50px; left: 40%"
+                        animation-delay="300"
+                        animation-easing="Back"
+                        animation-rate="-0.7, 0.6"
+                        class="moving circle black begin1"
+                        ></p>
+                <p
+                        animation-offset="margin-top:0"
+                        style="margin-left:-50px; left: 50%"
+                        animation-delay="400"
+                        animation-easing="Back"
+                        animation-rate="-0.7, 0.6"
+                        class="moving circle white begin1"
+                        ></p>
+                <p
+                        animation-offset="margin-top:0"
+                        style="margin-left:-50px; left: 60%"
+                        animation-delay="500"
+                        animation-easing="Back"
+                        animation-rate="-0.7, 0.6"
+                        class="moving circle blue begin1"
+                        ></p>
+                <p
+                        animation-offset="margin-top:0"
+                        style="margin-left:-50px; left: 70%"
+                        animation-delay="600"
+                        animation-easing="Back"
+                        animation-rate="-0.7, 0.6"
+                        class="moving circle red begin1"
+                        ></p>
+                <p
+                        animation-offset="margin-top:0"
+                        style="margin-left:-50px; left: 80%"
+                        animation-delay="700"
+                        animation-easing="Back"
+                        animation-rate="-0.7, 0.6"
+                        class="moving circle black begin1"
+                        ></p>
+                <p
+                        animation-offset="margin-top:0"
+                        style="margin-left:-50px; left: 90%"
+                        animation-delay="800"
+                        animation-easing="Back"
+                        animation-rate="-0.7, 0.6"
+                        class="moving circle origin begin1"
+                        ></p>
+            </div>
+            <div class="scene b2" animation-elem="scene">
+                <p
+                        animation-offset="left:-20px"
+                        style="top:10px; left: -200px"
+                        animation-delay="0"
+                        animation-easing="Cubic,Cubic"
+                        animation-rate="-0.5, -0.6"
+                        class="moving square white begin1"
+                        ></p>
+                <p
+                        animation-offset="left:-20px"
+                        style="top:118px; left: -200px"
+                        animation-delay="100"
+                        animation-easing="Cubic,Cubic"
+                        animation-rate="-0.5, -0.6"
+                        class="moving square blue begin1"
+                        ></p>
+                <p
+                        animation-offset="left:-20px"
+                        style="top:221px; left: -200px"
+                        animation-delay="200"
+                        animation-easing="Cubic,Cubic"
+                        animation-rate="-0.5, -0.6"
+                        class="moving square red begin1"
+                        ></p>
+                <p
+                        animation-offset="left:-20px"
+                        style="top:324px; left: -200px"
+                        animation-delay="300"
+                        animation-easing="Cubic,Cubic"
+                        animation-rate="-0.5, -0.6"
+                        class="moving square black begin1"
+                        ></p>
+                <p
+                        animation-offset="left:-20px"
+                        style="top:426px; left: -200px"
+                        animation-delay="400"
+                        animation-easing="Cubic,Cubic"
+                        animation-rate="-0.5, -0.6"
+                        class="moving square origin begin1"
+                        ></p>
+            </div>
+            <div class="scene b3" animation-elem="scene">
+                <p
+                        animation-offset="left:10%"
+                        animation-delay="0,0"
+                        animation-easing="Circular"
+                        animation-rate="0.3, -1"
+                        class="moving circle origin begin1"
+                        ></p>
+                <p
+                        animation-offset="left:20%"
+                        animation-delay="200,0"
+                        animation-easing="Circular"
+                        animation-rate="0.3, -0.8"
+                        class="moving circle origin begin1"
+                        ></p>
+                <p
+                        animation-offset="left:30%"
+                        animation-delay="300,0"
+                        animation-easing="Circular"
+                        animation-rate="0.3, -0.6"
+                        class="moving circle origin begin1"
+                        ></p>
+                <p
+                        animation-offset="left:40%"
+                        animation-delay="400,0"
+                        animation-easing="Circular"
+                        animation-rate="0.3, -0.5"
+                        class="moving circle origin begin1"
+                        ></p>
+                <p
+                        animation-offset="left:50%"
+                        animation-delay="500,0"
+                        animation-easing="Circular"
+                        animation-rate="0.3, -0.4"
+                        class="moving circle origin begin1"
+                        ></p>
+                <p
+                        animation-offset="left:60%"
+                        animation-delay="600,0"
+                        animation-easing="Circular"
+                        animation-rate="0.3, -0.3"
+                        class="moving circle origin begin1"
+                        ></p>
+                <p
+                        animation-offset="left:70%"
+                        animation-delay="700,0"
+                        animation-easing="Circular"
+                        animation-rate="0.3, -0.2"
+                        class="moving circle origin begin1"
+                        ></p>
+                <p
+                        animation-offset="left:80%"
+                        animation-delay="800,0"
+                        animation-easing="Circular"
+                        animation-rate="0.3, -0.1"
+                        class="moving circle origin begin1"
+                        ></p>
+            </div>
+            <div class="scene b4" animation-elem="scene">
+                <p
+                        animation-offset="transform: rotate(0deg)"
+                        style="margin-left:-50px; left: 10%; width: 100px; height: 100px"
+                        animation-delay="100"
+                        animation-easing="Cubic"
+                        animation-rate="-0.2, 0.6"
+                        class="moving square origin begin1"
+                        ></p>
+                <p
+                        animation-offset="transform: rotate(0deg)"
+                        style="margin-left:-50px; left: 25%; width: 100px; height: 100px"
+                        animation-delay="200"
+                        animation-easing="Cubic"
+                        animation-rate="-0.2, 0.6"
+                        class="moving square blue begin1"
+                        ></p>
+                <p
+                        animation-offset="transform: rotate(0deg)"
+                        style="margin-left:-50px; left: 40%; width: 100px; height: 100px"
+                        animation-delay="300"
+                        animation-easing="Cubic"
+                        animation-rate="-0.2, 0.6"
+                        class="moving square red begin1"
+                        ></p>
+                <p
+                        animation-offset="transform: rotate(0deg)"
+                        style="margin-left:-50px; left: 55%; width: 100px; height: 100px"
+                        animation-delay="400"
+                        animation-easing="Cubic"
+                        animation-rate="-0.2, 0.6"
+                        class="moving square black begin1"
+                        ></p>
+                <p
+                        animation-offset="transform: rotate(0deg)"
+                        style="margin-left:-50px; left: 70%; width: 100px; height: 100px"
+                        animation-delay="500"
+                        animation-easing="Cubic"
+                        animation-rate="-0.2, 0.6"
+                        class="moving square white begin1"
+                        ></p>
+                <p
+                        animation-offset="transform: rotate(0deg)"
+                        style="margin-left:-50px; left: 85%; width: 100px; height: 100px"
+                        animation-delay="600"
+                        animation-easing="Cubic"
+                        animation-rate="-0.2, 0.6"
+                        class="moving square blue begin1"
+                        ></p>
+            </div>
+            <div class="scene b5" animation-elem="scene">
+                <p
+                        animation-offset="transform: rotateY(0deg)"
+                        style="margin-left:-50px; left: 10%; width: 100px; height: 100px"
+                        animation-delay="100"
+                        animation-easing="Cubic"
+                        animation-rate="-0.2, 0.6"
+                        class="moving circle origin begin1"
+                        ></p>
+                <p
+                        animation-offset="transform: rotateY(0deg)"
+                        style="margin-left:-50px; left: 25%; width: 100px; height: 100px"
+                        animation-delay="200"
+                        animation-easing="Cubic"
+                        animation-rate="-0.2, 0.6"
+                        class="moving circle blue begin1"
+                        ></p>
+                <p
+                        animation-offset="transform: rotateY(0deg)"
+                        style="margin-left:-50px; left: 40%; width: 100px; height: 100px"
+                        animation-delay="300"
+                        animation-easing="Cubic"
+                        animation-rate="-0.2, 0.6"
+                        class="moving circle red begin1"
+                        ></p>
+                <p
+                        animation-offset="transform: rotateY(0deg)"
+                        style="margin-left:-50px; left: 55%; width: 100px; height: 100px"
+                        animation-delay="400"
+                        animation-easing="Cubic"
+                        animation-rate="-0.2, 0.6"
+                        class="moving circle black begin1"
+                        ></p>
+                <p
+                        animation-offset="transform: rotateY(0deg)"
+                        style="margin-left:-50px; left: 70%; width: 100px; height: 100px"
+                        animation-delay="500"
+                        animation-easing="Cubic"
+                        animation-rate="-0.2, 0.6"
+                        class="moving circle white begin1"
+                        ></p>
+                <p
+                        animation-offset="transform: rotateY(0deg)"
+                        style="margin-left:-50px; left: 85%; width: 100px; height: 100px"
+                        animation-delay="600"
+                        animation-easing="Cubic"
+                        animation-rate="-0.2, 0.6"
+                        class="moving circle blue begin1"
+                        ></p>
+            </div>
+        </div>
+    </div>
+
+    <!--<p class="bannerAnimation-dots">
+        <a href="javascript:;" class="active"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+    </p>-->
+
+</div>
+<div class="api" style="width: 1000px">
+    <h3>Javascript API</h3>
+    <div class="code">
+    <pre>onee.use("onee.scrollanimation").done(function () {</pre>
+    <pre>    onee.scrollanimation("#animation1", {</pre>
+    <pre>       <em>// 启动鼠标滚轮切换，默认false</em></pre>
+    <pre>        enableWheel : !!1,</pre>
+    <pre>       <em>// 启动触点导航控件，默认true</em></pre>
+    <pre>        enableNavigator : !!1,</pre>
+    <pre>       <em>// 初始化时显示的场景，默认第一帧场景，由0开始</em></pre>
+    <pre>        currentScene : 0,</pre>
+    <pre>       <em>// 启动自动播放，默认不启动</em></pre>
+    <pre>        autoPlay : !!1,</pre>
+    <pre>       <em>// 场景间切换时长</em></pre>
+    <pre>        playDuration : 1500,</pre>
+    <pre>       <em>// 场景切换方向[x|y]，默认延x轴</em></pre>
+    <pre>        scrollDiration : "y"</pre>
+    <pre>       <em>// 自动播放间隔时长</em></pre>
+    <pre>        autoPlayDuration : 5e3,</pre>
+    <pre>    });</pre>
+    <pre>})</pre>
+    </div>
+</div>
+
+<script src="/onee/Base/Underscode/underscodejs.min.js"></script>
+<script src="/onee/Base/onee.js"></script>
+<script src="/onee/Base/onee-plugins.js"></script>
+<script>
+    onee.use("onee.scrollanimation").done(function () {
+//    var t = +new Date;
+        window.mybanneranimation = onee.scrollanimation("#animation1", {
+            enableWheel : !!1,
+            // 启动导航控件
+            enableNavigator : !!1,
+            // 初始化的场景，从0开始
+            currentScene : 0,
+            // 方向
+            scrollDiration : "y",
+            // 自动播放
+            autoPlay : !!1,
+            // 播放动画时长
+            playDuration : 1500,
+            // 自动播放间隔
+            autoPlayDuration : 5e3,
+        });
+//    console.log(+new Date-t)
+
+    })
+</script>
+</body>
+</html>

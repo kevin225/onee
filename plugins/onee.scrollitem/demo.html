@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Plugin - onee.bannerAnimate | demo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="/onee/Style/api.css">
+</head>
+<body>
+<style>
+    html,body{
+        font: 12px "Microsofe yahei" arial;
+    }
+    *{
+        margin: 0;
+        padding: 0;
+    }
+
+    .banner1{
+        margin: 100px auto;
+        width: 1000px;
+        position: relative;
+    }
+    .banner1-holder{
+        height: 500px;
+        position: relative;
+        z-index: 5;
+        overflow: hidden;
+    }
+    .banner1-wrap{
+        position: relative;
+        height: 100%;
+        width: 100%;
+    }
+    .scene{
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+    }
+    .b1{background: url("imgs/b1.jpg");}
+    .b2{background: url("imgs/b2.jpg");}
+    .b3{background: url("imgs/b3.jpg");}
+    .b4{background: url("imgs/b4.jpg");}
+    .b5{background: url("imgs/b5.jpg");}
+    .bannerAnimation-dots{
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        z-index: 10;
+        bottom: 20px;
+    }
+    .bannerAnimation-dots a{
+        display: inline-block;
+        height: 20px;
+        width: 20px;
+        margin: 0 2px;
+        background-color: #0088cc;
+        border-radius: 10px;
+        box-shadow: 2px 1px 1px rgba(0,0,0,.5);
+    }
+    .bannerAnimation-dots .active{
+        background-color: #0d3349;
+    }
+</style>
+<div class="banner1">
+
+    <div class="banner1-holder" id="animation1">
+        <div class="banner1-wrap" animation-elem="wrap">
+            <div class="scene b1" animation-elem="scene"></div>
+            <div class="scene b2" animation-elem="scene"></div>
+            <div class="scene b3" animation-elem="scene"></div>
+            <div class="scene b4" animation-elem="scene"></div>
+            <div class="scene b5" animation-elem="scene"></div>
+        </div>
+    </div>
+
+    <!--<p class="bannerAnimation-dots">
+        <a href="javascript:;" class="active"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+    </p>-->
+
+</div>
+<div class="banner1">
+    <div class="banner1-holder" id="animation2">
+        <div class="banner1-wrap" animation-elem="wrap">
+            <div class="scene b1" animation-elem="scene"></div>
+            <div class="scene b2" animation-elem="scene"></div>
+            <div class="scene b3" animation-elem="scene"></div>
+            <div class="scene b4" animation-elem="scene"></div>
+            <div class="scene b5" animation-elem="scene"></div>
+        </div>
+    </div>
+</div>
+<div class="api" style="width: 1000px">
+    <h3>Javascript API</h3>
+    <div class="code">
+    <pre>onee.use("onee.scrollitem").done(function () {</pre>
+    <pre>    onee.scrollitem("#animation1", {</pre>
+    <pre>       <em>// 启动触点导航控件，默认true</em></pre>
+    <pre>        enableNavigator : !!1,</pre>
+    <pre>       <em>// 初始化时显示的场景，默认第一帧场景，由0开始</em></pre>
+    <pre>        currentScene : 0,</pre>
+    <pre>       <em>// 启动自动播放，默认不启动</em></pre>
+    <pre>        autoPlay : !!1,</pre>
+    <pre>       <em>// 场景间切换时长</em></pre>
+    <pre>        playDuration : 1500,</pre>
+    <pre>       <em>// 场景切换方向[x|y]，默认延x轴</em></pre>
+    <pre>        scrollDiration : "y"</pre>
+    <pre>       <em>// 自动播放间隔时长</em></pre>
+    <pre>        autoPlayDuration : 5e3,</pre>
+    <pre>       <em>// 场景节点活动时回调</em></pre>
+    <pre>        onSceneActive : [</pre>
+    <pre>           function () {},</pre>
+    <pre>           function () {},</pre>
+    <pre>           function () {},</pre>
+    <pre>           function () {},</pre>
+    <pre>           function () {}</pre>
+    <pre>       ]</pre>
+    <pre>    });</pre>
+    <pre>})</pre>
+    </div>
+</div>
+<script src="/onee/Base/Underscode/underscodejs.min.js"></script>
+<script src="/onee/Base/onee.js"></script>
+<script src="/onee/Base/onee-plugins.js"></script>
+<script>
+    onee.use("onee.scrollitem").done(function () {
+
+        onee.scrollitem("#animation1", {
+            // 启动导航控件
+            enableNavigator : !!1,
+            // 初始化的场景，从0开始
+            currentScene : 0,
+            // 方向
+            scrollDiration : "x",
+            // 自动播放
+            autoPlay : !!1,
+            // 播放动画时长
+            playDuration : 1000,
+            // 自动播放间隔
+            autoPlayDuration : 5e3,
+            // 场景节点活动时回调
+            onSceneActive : [
+                function (v) {
+                },
+                function (v) {
+                },
+                function (v) {
+                },
+                function (v) {
+                },
+                function (v) {
+                }
+            ]
+        });
+        onee.scrollitem("#animation2", {
+            // 启动导航控件
+            enableNavigator : !!1,
+            // 初始化的场景，从0开始
+            currentScene : 0,
+            // 方向
+            scrollDiration : "y",
+            // 自动播放
+            autoPlay : !!1,
+            // 播放动画时长
+            playDuration : 500,
+            // 自动播放间隔
+            autoPlayDuration : 5e3,
+            // 场景节点活动时回调
+            onSceneActive : [
+                function (v) {
+                },
+                function (v) {
+                },
+                function (v) {
+                },
+                function (v) {
+                },
+                function (v) {
+                }
+            ]
+        })
+
+    })
+</script>
+</body>
+</html>
