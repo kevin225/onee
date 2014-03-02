@@ -1,0 +1,23 @@
+﻿.popwin-body-openning{
+	height:100%;
+	overflow:hidden;
+	width:100%
+}
+.popwin-shadow{
+	height:100%;
+	width:100%;
+	background-color:#000;
+	opacity:.5;
+	position:absolute;
+	display:none;
+	top:0;
+	left:0;
+	z-index:10000;
+	filter:alpha(opacity=50)
+}
+.popwin-holder{
+	display:none;
+	top:50%;
+	left:50%;
+	position:absolute;
+}

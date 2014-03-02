@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>demo - onee.TmplM</title>
+<style>
+*{margin:0; padding:0}
+body, html{
+	font-size:12px;
+	font-family:"Microsofe yahei"
+}
+a {
+	text-decoration:none
+}
+pre {
+	background-color:#CCC;
+	padding:0 10px;
+	line-height:22px
+}
+pre em{
+	color:#999
+}
+h1{
+	font:bold 20px/50px "a";
+	text-align:center;
+	background-color:#993;
+	margin-bottom:20px;
+	box-shadow: 0 5px 5px rgba(0,0,0,.3)
+}
+h2{
+	font:bold 14px/30px "Microsofe yahei"
+}
+.article{
+	width:23%;
+	float:left;
+	margin:0 1% 20px;
+	box-shadow:5px 5px 5px rgba(0,0,0,.3)
+}
+</style>
+</head>
+
+<body>
+<h1>api - onee.TmplM</h1>
+<div class="article w1">
+<h2>(1)TmplM - 接口全字段</h2>
+<pre>
+<em>// var Tcomm = TmplM("comm.tpl") 引入模板文件</em>
+<em>// Tcomm 拥有以下方法：</em>
+<em>// 当模板文件引入成功的监听</em>
+<em>// Tcomm.done(callback) callback 回调，回调内部的this指向Tcomm</em>
+<em>// 查找指定模板（未必在Tcomm.done触发之后才能正确查找）</em>
+<em>// var TUserCenter = Tcomm.find("UserCenter")</em>
+<em>// TUserCenter 拥有以下方法：</em>
+<em>// TUserCenter.render("UserCenter2", map2)</em>
+<em>// @param {String} 填充节点ID</em>
+<em>// @param {Object} 数据</em>
+onee.TmplM("comm.tpl").done(function () {
+	this
+		.find("UserCenter")
+		.render("UserCenter", map)
+	this
+		.find("UserCenter")
+		.render("UserCenter2", map2)
+}).fail(function () {
+	
+})
+</pre>
+</div>
+<div id="UserCenter" style="padding:10px; margin:10px; background-color:#CCC">
+	loading...
+</div>
+<div id="UserCenter2" style="padding:10px; margin:10px; background-color:#CCC">
+	loading...
+</div>
+<div id="IndexLuks" style="padding:10px; margin:10px; background-color:#CCC">
+	loading...
+</div>
+<script type="tmpl/text" id="myTpl">
+    <ul>
+        each( O, function () {
+            <li>{$=name}</li>
+        });
+    </ul>
+</script>
+$("#mytml").html(Tpl.get("myTpl").rende(dat))
+</body>
+</html>
+<script src="../../Driver/Underscode/underscodejs.min.js"></script>
+<script src="../../Driver/onee/onee.js"></script>
+<script src="../../Driver/onee.ajax/ajax.js"></script>
+<script src="TmplM.js"></script>
+<script>
+// data
+var map = {"Status":"success","Data":{"ScoreTotal":4875,"RankTotal":-1,"ScoreWeek":0,"RankWeek":206679,"ScoreDetails":[{"NickName":"J.DO","ScoreType":"寻找伴旅","Score":85,"ScoreTypeId":1},{"NickName":"J.DO","ScoreType":"分享好友","Score":500,"ScoreTypeId":2},{"NickName":"J.DO","ScoreType":"透明工厂视频","Score":400,"ScoreTypeId":3},{"NickName":"J.DO","ScoreType":"透明问答","Score":3400,"ScoreTypeId":4},{"NickName":"J.DO","ScoreType":"扫描产品","Score":0,"ScoreTypeId":5}],"Schedules":[{"Finished":0,"ScoreType":"扫描透明伴旅","ScoreTypeId":1,"Score":0,"Task":1000},{"Finished":0,"ScoreType":"分享好友","ScoreTypeId":2,"Score":0,"Task":500},{"Finished":0,"ScoreType":"透明工厂视频","ScoreTypeId":3,"Score":0,"Task":3600},{"Finished":0,"ScoreType":"透明问答","ScoreTypeId":4,"Score":0,"Task":2000},{"Finished":0,"ScoreType":"扫描产品","ScoreTypeId":5,"Score":0,"Task":1800},{"Finished":0,"ScoreType":"营养家会员绑定","ScoreTypeId":6,"Score":0,"Task":5000}]}};
+var map2 = {"Status":"unlogin","Message":"当前用户没有登录"};
+
+var map3 = [{"CreateTime":"\/Date(1378914627453)\/","LastTime":"\/Date(1378914627453)\/","ID":"8fcef8ad64034c44b7900a73307d9db0","PrizeID":"P06","UserID":"U000465997","ExpireTime":"\/Date(1378915827453)\/","State":1,"NickName":"泌涛","RecordTime":"2013-09-11 23:50:27"},{"CreateTime":"\/Date(1378914311470)\/","LastTime":"\/Date(1378914311470)\/","ID":"4ef5e5c31ea442c4a0972fb8093c3598","PrizeID":"P01","UserID":"U000465973","ExpireTime":"\/Date(1378915511470)\/","State":1,"NickName":"蒙岛","RecordTime":"2013-09-11 23:45:11"},{"CreateTime":"\/Date(1378914115187)\/","LastTime":"\/Date(1378914115187)\/","ID":"d58472e1a37a4634a3b1bc9b4d777f22","PrizeID":"P03","UserID":"U000465962","ExpireTime":"\/Date(1378915315187)\/","State":1,"NickName":"雇涛","RecordTime":"2013-09-11 23:41:55"},{"CreateTime":"\/Date(1378914048750)\/","LastTime":"\/Date(1378914048750)\/","ID":"0c4d19725e7946dcb32a720da7d4efa2","PrizeID":"P05","UserID":"U000465959","ExpireTime":"\/Date(1378915248750)\/","State":1,"NickName":"酚澄","RecordTime":"2013-09-11 23:40:48"},{"CreateTime":"\/Date(1378914014547)\/","LastTime":"\/Date(1378914014547)\/","ID":"10204b9351c74b8e803aa20489dad528","PrizeID":"P06","UserID":"U000465356","ExpireTime":"\/Date(1378915214547)\/","State":1,"NickName":"Better","RecordTime":"2013-09-11 23:40:14"},{"CreateTime":"\/Date(1378913821627)\/","LastTime":"\/Date(1378913821627)\/","ID":"0d5c120a429846ab9d0c45ce6283df9e","PrizeID":"P06","UserID":"U000465940","ExpireTime":"\/Date(1378915021627)\/","State":1,"NickName":"酶琅","RecordTime":"2013-09-11 23:37:01"},{"CreateTime":"\/Date(1378913580267)\/","LastTime":"\/Date(1378913580267)\/","ID":"37840f10e2374689baad26e04d05516b","PrizeID":"P06","UserID":"U000397165","ExpireTime":"\/Date(1378914780267)\/","State":1,"NickName":"黄毛狮子","RecordTime":"2013-09-11 23:33:00"}];
+
+// 
+onee.TmplM("comm.tpl").done(function () {
+			
+	this.find("UserCenter")
+		.render("UserCenter", map)
+	this.find("UserCenter")
+		.render("UserCenter2", map2)
+	
+});
+onee.TmplM("comm.tpl").done(function () {
+			
+	this.find("IndexLuks").render("IndexLuks", map3)
+	//console.log(this.find("IndexLuks"))
+	
+})
+</script>

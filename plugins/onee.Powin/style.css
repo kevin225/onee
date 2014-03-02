@@ -1,0 +1,12 @@
+﻿/* global css */
+*{margin:0; padding:0; word-break:break-all\9; word-wrap:break-word}
+body{font:12px "Microsoft Yahei", Arial}
+em{font-style:normal}
+ul{list-style-type:none}
+img{border:0}
+a{text-decoration:none}
+.float{overflow:hidden; +zoom:1}
+.line-x,
+.clear{height:0; overflow:hidden; font-size:0; clear:both}
+.line-x{clear:none}
+.hidet{text-indent:-9999px; outline:none; background:url(about:blank)}

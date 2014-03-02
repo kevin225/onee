@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>plugin - form | demo</title>
+    <link rel="stylesheet" href="/onee/Style/api.css">
+</head>
+<style>
+*{margin:0; padding:0}
+body, html{
+	font-size:12px;
+	font-family:"Microsofe yahei"
+}
+a {
+	text-decoration:none
+}
+</style>
+<body>
+<div class="api" style="width: 1000px">
+    <h3>Javascript API</h3>
+    <div class="code">
+    	<pre><em>// @param formid   {String}</em></pre>
+    	<pre><em>// @method error   [String] 出现错误时回调，返回参数{type:"ajax|format", code|errField : [Array|Number}</em></pre>
+    	<pre><em>// @method check   [Number] 默认启动超时</em></pre>
+    	<pre><em>// @method done    [Boolean] 默认开启</em></pre>
+    	<pre><em>// @method process [Object] 提交的数据</em></pre>
+    	<pre>onee.use("onee.form").done(function () {</pre>
+
+		<pre>	var each    = _.each;</pre>
+		<pre>	var isArray = _.isArray;</pre>
+
+		<pre>	onee.Form("Form").done(function (dat) {</pre>
+
+		<pre>		console.log("done....");</pre>
+
+		<pre>	}).error(function (dat) {</pre>
+
+		<pre>		if ( dat.type == "format" ) {</pre>
+
+		<pre>			onee.use("onee.dom").done(function () {</pre>
+					
+		<pre>				!function (fields) {</pre>
+							
+		<pre>					if ( isArray(fields) ) {</pre>
+							
+		<pre>						var len = fields.length;</pre>
+								
+		<pre>						while (len--) arguments.callee(fields[len]);</pre>
+
+		<pre>					} else fields.nodeType == "1" && onee.dom.addClass(fields, "err");</pre>
+						
+		<pre>				}(dat.errField)</pre>
+					
+		<pre>			});</pre>
+
+		<pre>		}</pre>
+
+		<pre>	}).process(function (fields) {</pre>
+			
+		<pre>		console.log("process....");</pre>
+		<pre>		onee.use("onee.dom").done(function () {</pre>
+		<pre>			onee.dom.delClass(fields, "err");</pre>
+		<pre>		})</pre>
+			
+		<pre>	});</pre>
+
+		<pre>})</pre>
+    </div>
+</div>
+
+
+<form method="post" action="./io.php" id="Form">
+
+	<input field="name" type="text" format=".+" /><br>
+	<input type="checkbox" field="nick" value="web" /> web 
+	<input type="checkbox" field="nick" value="class4cxy" /> class4cxy<br>
+	<input type="radio" name="sex" field="sex" format=".+" value="男" /> 男
+	<input type="radio" name="sex" field="sex" format=".+" value="女" /> 女<br>
+	<select name="doi" field="doi">
+		<option selected="selected">chen</option>
+		<option value="cxy">cxy</option>
+		<option value="class4cxy">class4cxy</option>
+		<option value="simple">simple</option>
+	</select><br>
+	<button type="submit" id="subForm"> submit </button>
+
+</form>
+
+</body>
+</html>
+<script src="http://124.172.250.237/onee/Base/Underscode/underscodejs.min.js"></script>
+<script src="http://124.172.250.237/onee/Base/onee.js"></script>
+<script src="http://124.172.250.237/onee/Base/onee-plugins.js"></script>
+<script>
+	onee.use("onee.form").done(function () {
+
+		var each    = _.each;
+		var isArray = _.isArray;
+
+		onee.Form("Form").done(function (dat) {
+
+			console.log("done....");
+
+		}).error(function (dat) {
+
+			if ( dat.type == "format" ) {
+
+				onee.use("onee.dom").done(function () {
+				
+					!function (fields) {
+						
+						if ( isArray(fields) ) {
+						
+							var len = fields.length;
+							
+							while (len--) arguments.callee(fields[len]);
+
+						} else fields.nodeType == "1" && onee.dom.addClass(fields, "err");
+					
+					}(dat.errField)
+				
+				});
+
+			}
+
+		}).process(function (fields) {
+		
+			console.log("process....");
+			onee.use("onee.dom").done(function () {
+				onee.dom.delClass(fields, "err");
+			})
+		
+		});
+
+	})
+</script>

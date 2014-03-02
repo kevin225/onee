@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>plugin - popwind | demo</title>
+<link href="/onee/Style/api.css" type="text/css" rel="stylesheet" />
+<style>
+body, html{
+	font:12px "Microsoft yahei"
+}
+a{
+	text-decoration:none
+}
+*{
+	margin:0;
+	padding:0
+}
+.wrap{
+	height:10000px
+}
+</style>
+</head>
+
+<body>
+
+<div class="api" style="width: 1000px">
+    <h3>Javascript API</h3>
+    <div class="code">
+    	<pre><em>// 加载Powin模块</em></pre>
+		<pre>onee.use("onee.Powin").done(function () {</pre>
+		<pre>	<em>// 实例化win1窗口</em></pre>
+		<pre>	(new onee.Powin({</pre>
+		<pre>		<em>// 窗体ID，必须独立</em></pre>
+		<pre>		id     : "win1",</pre>
+		<pre>		<em>// 窗体文件</em></pre>
+		<pre>		file   : "win1.html",</pre>
+		<pre>		<em>// 窗体高度</em></pre>
+		<pre>		height : 241,</pre>
+		<pre>		<em>// 窗体高度</em></pre>
+		<pre>		width  : 368</pre>
+		<pre>	<em>// 监听每次打开事件</em></pre>
+		<pre>	})).on("open", function () {</pre>
+		<pre>		console.log("opening...")</pre>
+		<pre>	<em>// 监听每次关闭事件</em></pre>
+		<pre>	}).on("close", function () {</pre>
+		<pre>		console.log("closing...")</pre>
+		<pre>	});</pre>
+		<pre>})
+    </div>
+    <div class="demo">
+    	<a href="javascript:;" class="butt" onclick="onee.Powin.get('win1').open()">打开win1</a>
+    </div>
+</div>
+<div class="wrap">
+
+</div>
+</body>
+</html>
+<script src="http://124.172.250.237/onee/Base/Underscode/underscodejs.min.js"></script>
+<script src="http://124.172.250.237/onee/Base/onee.js"></script>
+<script src="http://124.172.250.237/onee/Base/onee-plugins.js"></script>
+<script>
+
+onee.use("onee.Powin").done(function () {
+	(window.win1 = new onee.Powin({
+		id     : "win1",
+		file   : "win1.html",
+		height : 241,
+		width  : 368
+	})).on("open", function () {
+	
+		console.log("opening...")
+	
+	}).on("close", function () {
+	
+		console.log("closing...")
+	
+	});
+	
+	(new onee.Powin({
+		id     : "win2",
+		file   : "win2.html",
+		height : 241,
+		width  : 368
+	})).on("open", function () {
+	
+		console.log("win2 opening...")
+	
+	}).on("close", function () {
+	
+		console.log("win2 closing...")
+	
+	})
+})
+
+/*
+
+参考：
+@param name [String|Object] // 参数
+-name -> 参数名
+-[String] 参数类型为String
+-[String|Object] 类型为String 或者 Object
+-[] 表示该参数不是必须的
+-{} 表示该参数是必须的
+
+................
+Class PowinM API
+................
+注：
+		PowinM管理模式，主要针对于指定工作域，一个工作
+	域可以添加无限个窗体对象，每个窗体对象相对是独立的，每
+	个窗体最终都被插入该工作域，并局限在该工作域内活动，而
+	且每个窗体对象都拥有自己的方法/属性；同样PowinM管理器
+	还可以批量的 添加，操作（打开/关闭/最小化/还原）指定窗体。
+
+
+实例化一个 PowinM 对象
+
+var mywins = new PowinM("#workSpace");
+参数说明：
+@param workSpace [String | Dom Object] // 工作域（默认为document.body）
+
+实例化完成之后将拥有以下批量管理方法：
+mywins.add() // 添加一个窗体
+      .get() // 获取指定窗体
+	  .open() // 批量打开指定窗体
+	  .close() // 批量关闭指定窗体
+	  .mins() // 批量最小化指定窗体
+	  .retu() // 批量还原指定窗体
+
+-----
+-add-
+-----
+增加多个/单个窗体
+mywins.add(
+	{
+		id     : "win1",
+		file   : "win1.html",
+		theme  : "chen's wins",
+		height : 300,
+		width  : 500,
+		showCtrlClose : !!1,
+		showCtrlTomin : !!1,
+		showCtrlTheme : !!1
+	},
+	{
+		id     : "win2",
+		file   : "win2.html",
+		theme  : "chen's wins",
+		height : 300,
+		width  : 500
+	}
+	.
+	.
+	.
+	.
+);
+参数说明：
+@param options {Object[, Object[, Object...]]} // 各个窗体参数
+	Object ->
+	@param Object.id {String} // 窗口ID
+	@param Object.file {String} // 窗口内容文件
+	@param Object.theme [String] // 窗口标题（默认值：“窗体”）
+	@param Object.height [Number] // 窗口高度（默认值：200）
+	@param Object.width [Number] // 窗口宽度（默认值：400）
+	@param Object.draggable [Boolean] // 窗口可拖拽？（默认值：true
+	@param Object.showCtrlClose [Boolean] // 是否显示关闭控件（默认值：不显示）
+	@param Object.showCtrlTomin [Boolean] // 是否显示最小化控件（默认值：不显示）
+	@param Object.showCtrlTheme [Boolean] // 是否显示主题控件（默认值：不显示）
+	
+
+----------------------
+-open/close/mins/retu-
+----------------------
+以上四种方法拥有相同的参数
+mywins.open(id1, id2, id3, ...)
+参数说明：
+@param id {String} // 指定窗体ID，若不传参数，默认打开当前所有窗体
+
+-----
+-get-
+-----
+获取某个窗体对象
+var mywin1 = mywins.get("win1");
+参数说明：
+@param id {String} // 指定窗体ID
+
+单个窗口对象同样拥有一系列方法（基本跟 PowinM 对象方法一致，只是操作仅仅针对该窗体）：
+mywin1.open() // 打开
+      .close() // 关闭
+	  .retu() // 还原
+	  .mins() // 最小化
+	  .on() // 监听事件
+	  .un() // 解除监听
+
+*/
+
+/*var t = +new Date;
+var len = 10;
+
+while( len-- ) {
+	new Powin({
+		id     : "win"+len,
+		file   : "win1.html",
+		height : 300,
+		width  : 500
+	})
+}
+console.log( +new Date - t );*/
+
+</script>
