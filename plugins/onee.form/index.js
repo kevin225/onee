@@ -50,7 +50,9 @@
 	// base method
 	var extend = _.extend;
 	var each   = _.each;
-	
+	// var getAttr= onee.dom
+	// get value of checkbox & radio;
+	// checkbox -> "value1,value2,value3.."
 	function _getvalueofradio ( radio ) {
 		if ( !radio.length ) return "";
 		
@@ -69,6 +71,23 @@
 				});
 		}
 		return val;
+	}
+
+	// get selectbox & multiple;
+	// multiple -> "select1,select2,select2.."
+	function _getSelect ( elem ) {
+		// var isMultiple = elem.multiple;
+		var options = elem.options;
+		var len = options.length;
+		var ret = [];
+		var item;
+
+		while(len--) {
+			item = options[len];
+			item.selected && ret.push(item.value);
+		}
+		
+		return ret.join(',')
 	}
 	
 	function _empty_ () {return !!1};
@@ -130,7 +149,7 @@
 
 			each( map, function ( item, k ) {
 				
-				value = item.dom.length > 1 ? _getvalueofradio(item.dom) : item.dom[0].value;
+				value = item.dom.length > 1 ? _getvalueofradio(item.dom) : item.dom[0].tagName==="SELECT" ? _getSelect(item.dom[0]) : item.dom[0].value;
 
 				if ( item.format && !(new RegExp(item.format)).test(value) ) {
 					

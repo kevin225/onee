@@ -16,12 +16,12 @@
     var ws = onee.workspace;
     // var base = ws + "Base/";
     var plugins = ws + "plugins/";
-    var sizzle = "Sizzle/Sizzle.js";
-    var jquery = "jquery/jquery.js";
-    var Tween = "Tween/Tween.js";
-    var RequestAnimationFrame = "Tween/RequestAnimationFrame.js";
-    var dom = "onee-dom.js";
-    var ajax = "onee-ajax.js";
+    var sizzle = ws + "Sizzle/Sizzle.js";
+    var jquery = ws + "jquery/jquery.js";
+    var Tween = ws + "Tween/Tween.js";
+    var RequestAnimationFrame = ws + "Tween/RequestAnimationFrame.js";
+    var dom = ws + "onee-dom.js";
+    var ajax = ws + "onee-ajax.js";
 	
 	onee.plugins = {
 

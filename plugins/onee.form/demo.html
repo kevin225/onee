@@ -20,7 +20,7 @@ a {
 	padding: 20px
 }
 .form div{
-	padding: 5px 0
+	margin-bottom: 10px
 }
 .form label{
 	font-size: 12px;
@@ -69,7 +69,7 @@ a {
 				</select>
 			</label></div>
 			<div><label>Multiple select :
-				<select name="Multipleselect" field="Multipleselect" multiple format=".+" size="5">
+				<select name="Multipleselect" field="Multipleselect" id="Multipleselect" multiple format=".+" size="5">
 					<option value="jdoi">jdoi</option>
 					<option value="chen">chen</option>
 					<option value="cxy">cxy</option>
@@ -135,14 +135,11 @@ a {
 
 </body>
 </html>
-<script src="http://124.172.250.237/onee/Base/Underscode/underscodejs.min.js"></script>
-<script src="http://124.172.250.237/onee/Base/onee.js"></script>
-<script src="http://124.172.250.237/onee/Base/onee-plugins.js"></script>
+<script src="/git/onee/Underscode/underscodejs.min.js"></script>
+<script src="/git/onee/onee.js"></script>
+<script src="/git/onee/onee-plugins.js"></script>
 <script>
-	/*onee.use("onee.form").done(function () {
-
-		var each    = _.each;
-		var isArray = _.isArray;
+	onee.use("onee.form").done(function () {
 
 		onee.Form("Form").done(function (dat) {
 
@@ -155,27 +152,12 @@ a {
 
 				onee.use("jquery").done(function () {
 				
-					// var fields = dat.errField;
-					// var len = fields.length;
-					// while (len--) {
-					// 	$( fields[len] ).parent().addClass("err");
-					// 	// onee.dom.addClass(fields[len][0].parentNode, "err");
-					// }
-					_.each(dat.errField, function (elem, k) {
-						console.log(elem)
-						onee.dom.addClass(elem.parentNode, "err");
-					})
-					// !function (fields) {
-						
-					// 	if ( isArray(fields) ) {
-						
-					// 		var len = fields.length;
-							
-					// 		while (len--) arguments.callee(fields[len]);
+					var errField = dat.errField;
+					var len = errField.length;
 
-					// 	} else fields.nodeType == "1" && onee.dom.addClass(fields.parentNode, "err");
-					
-					// }(dat.errField)
+					while (len--) {
+						$( errField[len] ).parents("div").addClass("err")
+					}
 				
 				});
 
@@ -183,15 +165,11 @@ a {
 
 		}).process(function (fields) {
 		
-			//console.log("process....");
-			console.log(fields)
-			onee.use("onee.dom").done(function () {
-				_.each(fields, function (elem, k) {
-					onee.dom.delClass(elem.parentNode, "err");
-				})
+			onee.use("jquery").done(function () {
+				$(fields).parents("div").removeClass("err")
 			})
 		
 		});
 
-	})*/
+	})
 </script>
