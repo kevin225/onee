@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>plugin - form | demo</title>
-    <link rel="stylesheet" href="/onee/Style/api.css">
+    <link rel="stylesheet" href="/git/onee/style/api.css">
 </head>
 <style>
 *{margin:0; padding:0}
@@ -14,9 +14,74 @@ body, html{
 a {
 	text-decoration:none
 }
+.form{
+	width: 400px;
+	border: 1px dashed #757575;
+	padding: 20px
+}
+.form div{
+	padding: 5px 0
+}
+.form label{
+	font-size: 12px;
+	display: block;
+}
+.form input,
+.form select,
+.form textarea{
+	margin-left: 10px;
+	vertical-align: middle;
+}
+.form textarea,
+.form select[multiple]{
+	vertical-align: top;
+}
+
+.form .err{
+	border:1px solid #f00
+}
 </style>
 <body>
 <div class="api" style="width: 1000px">
+    <h3>Demo</h3>
+	<div class="demo">
+    	<form method="post" action="./io.php" id="Form" class="form">
+
+			<div><label>text :<input field="text" type="text" name="title" format=".+" /></label></div>
+			<div>checkbox :
+				<label><input type="checkbox" field="checkbox" name="c1" format=".+" value="check1" /> check1 </label>
+				<label><input type="checkbox" field="checkbox" name="c1" format=".+" value="check1" /> check2 </label>
+				<label><input type="checkbox" field="checkbox" name="c1" format=".+" value="check1" /> check3 </label>
+				<label><input type="checkbox" field="checkbox" name="c1" format=".+" value="check1" /> check4 </label>
+				<label><input type="checkbox" field="checkbox" name="c1" format=".+" value="check1" /> check5 </label>
+			</div>
+			<div>radio :
+				<label><input type="radio" name="sex" field="radio" format=".+" value="男" /> 男</label>
+				<label><input type="radio" name="sex" field="radio" format=".+" value="女" /> 女</label>
+			</div>
+			<div><label>select :
+				<select name="select" field="select" format=".+">
+					<option selected="selected" value="">...</option>
+					<option value="chen">chen</option>
+					<option value="cxy">cxy</option>
+					<option value="class4cxy">class4cxy</option>
+					<option value="simple">simple</option>
+				</select>
+			</label></div>
+			<div><label>Multiple select :
+				<select name="Multipleselect" field="Multipleselect" multiple format=".+" size="5">
+					<option value="jdoi">jdoi</option>
+					<option value="chen">chen</option>
+					<option value="cxy">cxy</option>
+					<option value="class4cxy">class4cxy</option>
+					<option value="simple">simple</option>
+				</select>
+			</label></div>
+			<div><label>textarea :<textarea field="textarea" name="textarea" format=".+"></textarea></label></div>
+			<button type="submit" class="butt"> submit </button>
+
+		</form>
+    </div>
     <h3>Javascript API</h3>
     <div class="code">
     	<pre><em>// @param formid   {String}</em></pre>
@@ -68,31 +133,13 @@ a {
     </div>
 </div>
 
-
-<form method="post" action="./io.php" id="Form">
-
-	<input field="name" type="text" format=".+" /><br>
-	<input type="checkbox" field="nick" value="web" /> web 
-	<input type="checkbox" field="nick" value="class4cxy" /> class4cxy<br>
-	<input type="radio" name="sex" field="sex" format=".+" value="男" /> 男
-	<input type="radio" name="sex" field="sex" format=".+" value="女" /> 女<br>
-	<select name="doi" field="doi">
-		<option selected="selected">chen</option>
-		<option value="cxy">cxy</option>
-		<option value="class4cxy">class4cxy</option>
-		<option value="simple">simple</option>
-	</select><br>
-	<button type="submit" id="subForm"> submit </button>
-
-</form>
-
 </body>
 </html>
 <script src="http://124.172.250.237/onee/Base/Underscode/underscodejs.min.js"></script>
 <script src="http://124.172.250.237/onee/Base/onee.js"></script>
 <script src="http://124.172.250.237/onee/Base/onee-plugins.js"></script>
 <script>
-	onee.use("onee.form").done(function () {
+	/*onee.use("onee.form").done(function () {
 
 		var each    = _.each;
 		var isArray = _.isArray;
@@ -103,21 +150,32 @@ a {
 
 		}).error(function (dat) {
 
+			// console.log(dat)
 			if ( dat.type == "format" ) {
 
-				onee.use("onee.dom").done(function () {
+				onee.use("jquery").done(function () {
 				
-					!function (fields) {
+					// var fields = dat.errField;
+					// var len = fields.length;
+					// while (len--) {
+					// 	$( fields[len] ).parent().addClass("err");
+					// 	// onee.dom.addClass(fields[len][0].parentNode, "err");
+					// }
+					_.each(dat.errField, function (elem, k) {
+						console.log(elem)
+						onee.dom.addClass(elem.parentNode, "err");
+					})
+					// !function (fields) {
 						
-						if ( isArray(fields) ) {
+					// 	if ( isArray(fields) ) {
 						
-							var len = fields.length;
+					// 		var len = fields.length;
 							
-							while (len--) arguments.callee(fields[len]);
+					// 		while (len--) arguments.callee(fields[len]);
 
-						} else fields.nodeType == "1" && onee.dom.addClass(fields, "err");
+					// 	} else fields.nodeType == "1" && onee.dom.addClass(fields.parentNode, "err");
 					
-					}(dat.errField)
+					// }(dat.errField)
 				
 				});
 
@@ -125,12 +183,15 @@ a {
 
 		}).process(function (fields) {
 		
-			console.log("process....");
+			//console.log("process....");
+			console.log(fields)
 			onee.use("onee.dom").done(function () {
-				onee.dom.delClass(fields, "err");
+				_.each(fields, function (elem, k) {
+					onee.dom.delClass(elem.parentNode, "err");
+				})
 			})
 		
 		});
 
-	})
+	})*/
 </script>
